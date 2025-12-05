@@ -1,19 +1,37 @@
-//FeedFragment.kt
-package com.shapes.ui
+//FeedbackFragment.kt
+package com.shapes.app.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.shapes.R
+import com.shapes.app.databinding.FragmentFeedbackBinding
 
 class FeedbackFragment : Fragment() {
+
+    private var _binding: FragmentFeedbackBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_feedback, container, false)
+    ): View {
+        _binding = FragmentFeedbackBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        val shapeName = arguments?.getString("shapeName") ?: "Unknown"
+        binding.txtResult.text = shapeName
+
+        // TODO: Add TTS feedback
+        // TODO: Play confetti / reward animation
+
+        binding.btnRetry.setOnClickListener {
+            // TODO: navigate back
+        }
     }
 }
