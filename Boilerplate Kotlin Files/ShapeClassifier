@@ -1,0 +1,46 @@
+//ShapeClassifier.kt
+package com.shapes.app.ml
+
+import android.content.Context
+import android.graphics.Bitmap
+import org.tensorflow.lite.Interpreter
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
+
+class ShapeClassifier(context: Context) {
+
+    private val interpreter: Interpreter
+
+    init {
+        val modelBytes = context.assets.open("model.tflite").readBytes()
+        interpreter = Interpreter(modelBytes)
+    }
+
+    fun preprocess(bitmap: Bitmap): ByteBuffer {
+        val resized = Bitmap.createScaledBitmap(bitmap, 64, 64, true)
+        val buffer = ByteBuffer.allocateDirect(64 * 64 * 4)
+        buffer.order(ByteOrder.nativeOrder())
+
+        for (y in 0 until 64) {
+            for (x in 0 until 64) {
+                val pixel = resized.getPixel(x, y)
+                val r = (pixel shr 16 and 0xFF) / 255f
+                buffer.putFloat(r)
+            }
+        }
+
+        return buffer
+    }
+
+    fun classify(bitmap: Bitmap): String {
+        val input = preprocess(bitmap)
+        val output = Array(1) { FloatArray(5) } // 5 shapes
+
+        interpreter.run(input, output)
+
+        val shapes = listOf("Circle", "Square", "Triangle", "Star", "Heart")
+        val index = output[0].indices.maxByOrNull { output[0][it] }!!
+
+        return shapes[index]
+    }
+}
