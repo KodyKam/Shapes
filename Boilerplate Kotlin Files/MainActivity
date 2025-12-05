@@ -1,13 +1,33 @@
 //MainActivity.kt
-package com.shapes
+package com.shapes.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.shapes.drawing.DrawingView
+import com.shapes.app.databinding.ActivityMainBinding
+import com.shapes.app.ml.ShapeClassifier
+import com.shapes.app.drawing.DrawingView
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var classifier: ShapeClassifier
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(DrawingView(this))
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        classifier = ShapeClassifier(this)
+
+        binding.btnRecognize.setOnClickListener {
+            val bitmap = binding.drawingCanvas.exportToBitmap()
+            val result = classifier.classify(bitmap)
+
+            // TODO: Navigate to FeedbackFragment with result
+        }
+
+        binding.btnClear.setOnClickListener {
+            binding.drawingCanvas.clearDrawing()
+        }
     }
 }
