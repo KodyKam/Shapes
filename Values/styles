@@ -1,0 +1,5 @@
+// values/styles.xml
+<resources>
+    <style name="Theme.Shapes" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    </style>
+</resources>
