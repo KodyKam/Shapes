@@ -1,0 +1,27 @@
+Shapes/
+│── README.md
+│── .gitignore
+│
+└── app/
+    └── src/
+        └── main/
+            ├── AndroidManifest.xml
+            ├── java/
+            │   └── com/
+            │       └── shapes/
+            │           ├── MainActivity.kt
+            │           ├── drawing/
+            │           │   └── DrawingView.kt
+            │           ├── model/
+            │           │   └── ShapeClassifier.kt
+            │           └── ui/
+            │               └── FeedbackFragment.kt
+            │
+            └── res/
+                ├── layout/
+                │   ├── activity_main.xml
+                │   └── fragment_feedback.xml
+                ├── drawable/
+                └── values/
+                    ├── strings.xml
+                    └── styles.xml
