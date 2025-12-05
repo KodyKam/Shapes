@@ -1,0 +1,29 @@
+# Shapes — Shape Recognition App
+
+An educational Android application for teaching children basic shapes using finger-drawing and TensorFlow Lite recognition.
+
+## Features
+- Finger drawing canvas
+- Shape recognition (TFLite)
+- Feedback animations
+- Simple kid-friendly UI
+
+## Tech Stack
+- Kotlin
+- Android Studio
+- Custom Canvas drawing
+- TensorFlow Lite
+
+## Team Members
+- Mihyun Kim – 301480772
+- Dingpei Chen – 301450285
+- Nico Steven Castro – 301476703
+- Kamara Alleyne – 301456779
+- Kunj Kharadi – 301428999
+
+## Roles
+- Mihyun Kim — Android Front-End Developer  
+- Kamara Alleyne — Feature Implementation Lead Developer  
+- Dingpei Chen — Backend & Data Integration  
+- Nico Steven Castro — Testing & QA  
+- Kunj Kharadi — Project Coordination & Support  
