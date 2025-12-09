@@ -1,0 +1,58 @@
+//DrawingView.kt
+package com.shapes.app
+
+import android.content.Context
+import android.graphics.*
+import android.util.AttributeSet
+import android.view.View
+import android.view.MotionEvent
+
+class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) {
+
+    private val drawPaint = Paint().apply {
+        color = Color.BLACK
+        strokeWidth = 20f
+        style = Paint.Style.STROKE
+        strokeJoin = Paint.Join.ROUND
+        strokeCap = Paint.Cap.ROUND
+    }
+
+    private val drawPath = Path()
+    private var canvasBitmap: Bitmap? = null
+    private lateinit var drawCanvas: Canvas
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+        canvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
+        drawCanvas = Canvas(canvasBitmap!!)
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        canvas.drawBitmap(canvasBitmap!!, 0f, 0f, drawPaint)
+        canvas.drawPath(drawPath, drawPaint)
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        val x = event.x
+        val y = event.y
+
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> drawPath.moveTo(x, y)
+            MotionEvent.ACTION_MOVE -> drawPath.lineTo(x, y)
+            MotionEvent.ACTION_UP -> {
+                drawCanvas.drawPath(drawPath, drawPaint)
+                drawPath.reset()
+            }
+        }
+
+        invalidate()
+        return true
+    }
+
+    fun clearDrawing() {
+        canvasBitmap?.eraseColor(Color.WHITE)
+        invalidate()
+    }
+
+    fun exportToBitmap(): Bitmap = canvasBitmap!!.copy(Bitmap.Config.ARGB_8888, false)
+}
