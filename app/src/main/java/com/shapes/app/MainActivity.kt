@@ -1,3 +1,9 @@
+/*
+ * File: MainActivity.kt
+ * Author: Kamara Alleyne
+ * Purpose: Initializes core app components and handles navigation setup
+ * Last Modified: Dec 2025
+ */
 package com.shapes.app
 
 import android.os.Bundle
