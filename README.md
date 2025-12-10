@@ -1,4 +1,4 @@
-Shapes 🎨📱
+## Shapes 🎨📱
 
 Shapes is an educational mobile application designed to help children learn basic geometric shapes through fun, interactive drawing and instant feedback.
 
@@ -10,11 +10,16 @@ Children can draw shapes on the screen, and the app uses machine learning to rec
 
 ⸻
 
-🛠️ Technology Stack • Android Studio • Kotlin • TensorFlow Lite • Custom drawing canvas
+## 🛠️ Technology Stack
+• Android Studio 
+• Kotlin 
+• TensorFlow Lite 
+• Custom drawing canvas
 
 ⸻
 
-📲 How to Run the Project 1. Clone the repository: git clone https://github.com/KodyKam/Shapes.git
+## 📲 How to Run the Project 
+1. Clone the repository: git clone https://github.com/KodyKam/Shapes.git
 
 2.	Open the project in Android Studio
 3.	Let Gradle sync the project
@@ -24,9 +29,18 @@ This project was built as a team effort. Each member contributed to different pa
 
 We used GitHub for version control, branching, and collaboration.
 
+## Code Documentation
+
+Each source file in this project contains:
+- File header comments
+- Function-level documentation
+- Inline logic explanations
+
+This improves readability and supports future maintenance.
+
 ⸻
 
-🤝 How to Contribute
+## 🤝 How to Contribute
 
 We welcome contributions! You can help by: • Improving the UI • Fixing bugs • Adding new shapes • Enhancing recognition accuracy • Improving documentation
 
@@ -34,7 +48,7 @@ Please fork the repository and submit a pull request.
 
 ⸻
 
-📬 Contact
+## 📬 Contact
 
 For questions or suggestions:
 
