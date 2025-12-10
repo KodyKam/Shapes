@@ -1,3 +1,9 @@
+<!--
+    File: colors.xml
+    Author: Mihyun Kim (Liz)
+    Purpose: Defines kid-friendly theme colors used in the UI
+    Last Modified: Dec 2025
+-->
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
