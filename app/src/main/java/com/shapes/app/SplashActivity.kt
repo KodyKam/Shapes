@@ -1,3 +1,10 @@
+/*
+ * File: SplashActivity.kt
+ * Author: Kunj Kharadi
+ * Purpose: Displays the splash screen while initializing app resources
+ * Last Modified: Dec 2025
+ */
+
 package com.shapes.app
 
 import android.content.Intent
