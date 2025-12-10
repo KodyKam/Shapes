@@ -1,3 +1,10 @@
+/*
+ * File: GameManager.kt
+ * Author: Kamara Alleyne
+ * Purpose: Manages game state, scoring, and progression flow
+ * Last Modified: Dec 2025
+ */
+
 package com.shapes.app
 
 class GameManager {
