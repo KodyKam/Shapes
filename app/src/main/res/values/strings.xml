@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shapes</string>
+    <string name="draw_a_shape">Draw a Shape</string>
+    <string name="clear">Clear</string>
+    <string name="recognize">Recognize</string>
+    <string name="excellent">Excellent!</string>
+    <string name="confidence">Confidence: %d%%</string>
+    <string name="try_again">Try Again</string>
+    <string name="next">Next</string>
+    <string name="feedback">Feedback</string>
+    <string name="circle">Circle</string>
+    <string name="square">Square</string>
+    <string name="triangle">Triangle</string>
+</resources>
