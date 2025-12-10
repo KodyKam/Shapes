@@ -25,7 +25,7 @@ Children can draw shapes on the screen, and the app uses machine learning to rec
 
 📲 How to Run the Project
 	1.	Clone the repository:
-		•	git clone https://github.com/KodyKam/Shapes.git
+		git clone https://github.com/KodyKam/Shapes.git
 	
 	2.	Open the project in Android Studio
 	3.	Let Gradle sync the project
