@@ -1,3 +1,10 @@
+/*
+ * File: FeedbackFragment.kt
+ * Author: Kunj Kharadi
+ * Purpose: Displays feedback based on recognized shape and user performance
+ * Last Modified: Dec 2025
+ */
+
 package com.shapes.app
 
 import android.os.Bundle
