@@ -1,3 +1,10 @@
+/*
+ * File: ShapeRecognizer.kt
+ * Author: Dingpei Chen
+ * Purpose: Coordinates recognition flow between drawing input and ML classifier
+ * Last Modified: Dec 2025
+ */
+
 package com.shapes.app
 
 import android.graphics.Path
