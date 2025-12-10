@@ -1,3 +1,10 @@
+/*
+ * File: ShapeClassifier.kt
+ * Author: Dingpei Chen
+ * Purpose: Handles image processing and runs ML model to classify drawn shapes
+ * Last Modified: Dec 2025
+ */
+
 package com.shapes.app
 
 import android.graphics.Bitmap
