@@ -1,3 +1,10 @@
+/*
+ * File: HomeFragment.kt
+ * Author: Kunj Kharadi
+ * Purpose: Displays the home screen and allows users to start the Shapes game
+ * Last Modified: Dec 2025
+ */
+
 package com.shapes.app
 
 import android.os.Bundle
