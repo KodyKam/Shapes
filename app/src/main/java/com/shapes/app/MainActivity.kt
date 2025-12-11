@@ -1,47 +1,59 @@
+/*
+ * File: MainActivity.kt
+ * Author: Kamara Alleyne
+ * Purpose: Initializes core app components and handles navigation setup
+ * Last Modified: Dec 2025
+ */
 package com.shapes.app
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.shapes.app.ui.theme.ShapesTheme
+import android.speech.tts.TextToSpeech
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import com.shapes.app.databinding.ActivityMainBinding
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
+    private var tts: TextToSpeech? = null
+
+    companion object {
+        var gameManager: GameManager? = null
+        var shapeClassifier: ShapeClassifier? = null
+        var ttsEngine: TextToSpeech? = null
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            ShapesTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Initialize managers
+        gameManager = GameManager()
+        shapeClassifier = ShapeClassifier()
+        tts = TextToSpeech(this, this)
+
+        // Setup navigation
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            ttsEngine = tts
+            Log.d("TTS", "Text-to-Speech initialized")
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ShapesTheme {
-        Greeting("Android")
+    override fun onDestroy() {
+        tts?.shutdown()
+        super.onDestroy()
     }
 }
